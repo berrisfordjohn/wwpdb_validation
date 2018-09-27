@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='adding_stats_to_mmcif',
+    name='wwPDB validation',
     version='0.1',
     url='https://github.com/berrisfordjohn/wwpdb_validation',
     author='John Berrisford',

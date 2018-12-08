@@ -32,7 +32,7 @@ class TestValidationReportGeneration(unittest.TestCase):
             output_xml_file_name=output_xml_file,
             output_cif_file_name=output_cif_file)
         self.assertTrue(worked)
-        #shutil.rmtree(test_dir)
+        shutil.rmtree(test_dir)
 
 
 if __name__ == '__main__':

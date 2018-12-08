@@ -4,7 +4,7 @@ import pprint
 import os
 import argparse
 from .xml_parsing import parse_xml
-
+from tests.access_test_files import TestFiles
 
 logger = logging.getLogger()
 FORMAT = "%(filename)s - %(funcName)s - %(message)s"
@@ -19,7 +19,8 @@ class validationReport:
         self.tree = None
         self.root = None
         self.result = dict()
-
+        self.entry = dict()
+        self.programs = dict()
 
     def parse_xml(self):
         """
@@ -31,7 +32,39 @@ class validationReport:
             self.root = parse_xml(xml_file=self.xml_file)
 
         if self.root is not None:
-            if self.root.tag == 'AIMLESS_PIPE' or self.root.tag == 'AIMLESS':
-                logging.debug('is an aimless xml file')
+            if self.root.tag == 'wwPDB-validation-information':
+                logging.debug('is an wwPDB validation file')
                 return True
         return False
+
+    def get_entry_info(self):
+        nodes = self.root.findall(".//Entry")
+        for node in nodes:
+            for attrName, attrValue in node.attrib.items():
+                self.entry[attrName] = attrValue
+
+    def get_programs(self):
+        nodes = self.root.findall(".//program")
+        for node in nodes:
+            prog_dict = dict()
+            for attrName, attrValue in node.attrib.items():
+                prog_dict[attrName] = attrValue
+            prog_name = prog_dict.get('name', '')
+            if prog_name:
+                self.programs[prog_name] = prog_dict
+
+    def run_process(self):
+        self.parse_xml()
+        self.get_entry_info()
+        self.get_programs()
+
+if __name__ == '__main__':
+    test_data = TestFiles()
+    test_data.pdb1cbs()
+    logging.info(test_data.xml)
+
+    vr = validationReport(xml_file=test_data.xml)
+    vr.run_process()
+    print(vr.entry)
+    print(vr.programs)
+

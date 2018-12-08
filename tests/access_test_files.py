@@ -7,24 +7,16 @@ class TestFiles:
         self.path = os.path.dirname(os.path.join(self.FILE_ROOT, '..', '..'))
         self.test_data = os.path.join(self.path, 'test_data')
 
+        self.xml = None
         self.cif = None
-        self.structure_factor = None
+        self.sf = None
 
     def pdb3zt9(self):
-        self.cif = os.path.join(self.test_data, "pdb3zt9_refmac1.cif")
-        self.structure_factor = os.path.join(self.test_data, 'r3zt9sf.ent')
+        self.xml = os.path.join(self.test_data, "3zt9_validation.xml")
+        self.cif = os.path.join(self.test_data,'3zt9.cif')
+        self.sf = os.path.join(self.test_data,'r3zt9sf.ent')
 
-    def pdb4hg7(self):
-        self.cif = os.path.join(self.test_data, "deposition_refmac1.cif")
+    def pdb1cbs(self):
+        self.xml = os.path.join(self.test_data, "1cbs_validation.xml")
 
-    def pdb6fqf(self):
-        self.cif = os.path.join(self.test_data, "pdb6fqf_refmac1.cif")
-        self.structure_factor = os.path.join(self.test_data, 'r6fqfsf.ent')
 
-    def pdb6db6(self):
-        self.cif = os.path.join(self.test_data, 'pdb6db6_refmac1.cif')
-        self.structure_factor = os.path.join(self.test_data, 'r6bd6sf.ent')
-
-    def pdb5l1z(self):
-        self.cif = os.path.join(self.test_data, "5l1z_refmac1.cif")
-        self.structure_factor = os.path.join(self.test_data, 'r5l1zsf.ent')

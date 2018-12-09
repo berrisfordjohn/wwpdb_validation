@@ -25,6 +25,7 @@ def display_status(sD, exitOnError=True):
 def run_validation_api(model_file_path, sf_file_path, output_pdf_file_name, 
                        output_xml_file_name, 
                        output_cif_file_name=None,
+                       output_svg_file_name=None,
                        api_input_url=None):
     # Given:
     # modelFilePath contains the path to the model file
@@ -77,6 +78,10 @@ def run_validation_api(model_file_path, sf_file_path, output_pdf_file_name,
             ret = val.getOutputByType(output_cif_file_name, contentType="model")
             display_status(ret)
             logging.debug('getting cif status: {}'.format(ret))
+        if output_svg_file_name:
+            ret = val.getOutputByType(output_svg_file_name, contentType="validation-report-slider")
+            display_status(ret)
+            logging.debug('getting svg status: {}'.format(ret))
         if os.path.exists(output_pdf_file_name and output_xml_file_name):
             shutil.rmtree(temp_output_dir)
             return True
@@ -96,6 +101,7 @@ if __name__ == '__main__':
     parser.add_argument('--output_pdf_file_name', help='output pdf file name', type=str, required=True)
     parser.add_argument('--output_xml_file_name', help='output xml file name', type=str, required=True)
     parser.add_argument('--output_cif_file_name', help='output cif file name', type=str)
+    parser.add_argument('--output_svg_file_name', help='output svg file name', type=str)
     parser.add_argument('--api_url', help='input api url', type=str)
     parser.add_argument('-d', '--debug', help='debugging', action='store_const', dest='loglevel', const=logging.DEBUG,
                         default=logging.INFO)
@@ -108,5 +114,6 @@ if __name__ == '__main__':
                                         output_pdf_file_name=args.output_pdf_file_name, 
                                         output_xml_file_name=args.output_xml_file_name,
                                         output_cif_file_name=args.output_cif_file_name, 
+                                        output_svg_file_name=args.output_svg_file_name,
                                         api_input_url=args.api_url)
     logging.info('worked: {}'.format(worked))

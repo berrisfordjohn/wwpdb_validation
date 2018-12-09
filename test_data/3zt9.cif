@@ -6177,39 +6177,6 @@ iMOSFLM 'data reduction' .                 ? 2 ? ? ? ?
 SCALA   'data scaling'   .                 ? 3 ? ? ? ? 
 SHELXDE phasing          .                 ? 4 ? ? ? ? 
 # 
-loop_
-_pdbx_validate_close_contact.id 
-_pdbx_validate_close_contact.PDB_model_num 
-_pdbx_validate_close_contact.auth_atom_id_1 
-_pdbx_validate_close_contact.auth_asym_id_1 
-_pdbx_validate_close_contact.auth_comp_id_1 
-_pdbx_validate_close_contact.auth_seq_id_1 
-_pdbx_validate_close_contact.PDB_ins_code_1 
-_pdbx_validate_close_contact.label_alt_id_1 
-_pdbx_validate_close_contact.auth_atom_id_2 
-_pdbx_validate_close_contact.auth_asym_id_2 
-_pdbx_validate_close_contact.auth_comp_id_2 
-_pdbx_validate_close_contact.auth_seq_id_2 
-_pdbx_validate_close_contact.PDB_ins_code_2 
-_pdbx_validate_close_contact.label_alt_id_2 
-_pdbx_validate_close_contact.dist 
-1 1 OG  A SER 56   ? ? HD13 A LEU 71   ? ? 1.58 
-2 1 OD2 A ASP 90   ? ? O    A HOH 2086 ? ? 1.88 
-3 1 O   A HOH 2085 ? ? O    A HOH 2086 ? ? 2.16 
-# 
-loop_
-_pdbx_validate_torsion.id 
-_pdbx_validate_torsion.PDB_model_num 
-_pdbx_validate_torsion.auth_comp_id 
-_pdbx_validate_torsion.auth_asym_id 
-_pdbx_validate_torsion.auth_seq_id 
-_pdbx_validate_torsion.PDB_ins_code 
-_pdbx_validate_torsion.label_alt_id 
-_pdbx_validate_torsion.phi 
-_pdbx_validate_torsion.psi 
-1 1 THR A 79  ? ? -108.01 -169.32 
-2 1 TYR A 126 ? ? -128.24 -51.75  
-# 
 _pdbx_distant_solvent_atoms.id                                1 
 _pdbx_distant_solvent_atoms.PDB_model_num                     1 
 _pdbx_distant_solvent_atoms.auth_atom_id                      O 

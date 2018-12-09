@@ -13,7 +13,7 @@ class TestFiles:
 
     def pdb3zt9(self):
         self.xml = os.path.join(self.test_data, "3zt9_validation.xml")
-        self.cif = os.path.join(self.test_data,'3zt9.cif')
+        self.cif = os.path.join(self.test_data,'pdb3zt9_refmac1_output.cif')
         self.sf = os.path.join(self.test_data,'r3zt9sf.ent')
 
     def pdb1cbs(self):

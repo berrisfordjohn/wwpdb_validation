@@ -33,9 +33,6 @@ class TestValidationReportGeneration(unittest.TestCase):
             output_pdf_file_name=output_pdf_file,
             output_xml_file_name=output_xml_file,
             output_log_file_name=output_log_file,
-            api_input_url='http://pdbe-onedep-val1.ebi.ac.uk:12000',
-            #output_cif_file_name = output_cif_file,
-            # output_svg_file_name=output_svg_file
             )
         self.assertTrue(worked)
         shutil.rmtree(test_dir)

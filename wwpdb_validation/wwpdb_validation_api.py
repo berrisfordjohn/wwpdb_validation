@@ -26,6 +26,7 @@ def run_validation_api(model_file_path, output_pdf_file_name,
                        output_xml_file_name,
                        structure_factors=None,
                        nmr_chemical_shifts=None,
+                       em_volume=None,
                        output_cif_file_name=None,
                        output_svg_file_name=None,
                        output_log_file_name=None,
@@ -47,6 +48,9 @@ def run_validation_api(model_file_path, output_pdf_file_name,
         display_status(ret)
     if nmr_chemical_shifts:
         ret = val.inputNmrChemicalShiftsFile(nmr_chemical_shifts)
+        display_status(ret)
+    if em_volume:
+        ret = val.inputEmVolume(em_volume)
         display_status(ret)
     ret = val.run()
     display_status(ret)
@@ -114,6 +118,7 @@ if __name__ == '__main__':
     parser.add_argument('--input_mmcif', help='input mmcif model file', type=str, required=True)
     parser.add_argument('--input_sf_file', help='input sf file', type=str)
     parser.add_argument('--input_cs_file', help='input chemical shift file', type=str)
+    parser.add_argument('--input_em_volume_file', help='input EM volume file', type=str)
     parser.add_argument('--output_pdf_file_name', help='output pdf file name', type=str, required=True)
     parser.add_argument('--output_xml_file_name', help='output xml file name', type=str, required=True)
     parser.add_argument('--output_cif_file_name', help='output cif file name', type=str)
@@ -129,6 +134,7 @@ if __name__ == '__main__':
 
     worked = run_validation_api(structure_factors=args.input_sf_file, model_file_path=args.input_mmcif,
                                 nmr_chemical_shifts=args.input_cs_file,
+                                em_volume=args.input_em_volume_file,
                                 output_pdf_file_name=args.output_pdf_file_name,
                                 output_xml_file_name=args.output_xml_file_name,
                                 output_cif_file_name=args.output_cif_file_name,

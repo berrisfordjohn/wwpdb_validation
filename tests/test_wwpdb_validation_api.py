@@ -33,6 +33,8 @@ class TestValidationReportGeneration(unittest.TestCase):
             output_pdf_file_name=output_pdf_file,
             output_xml_file_name=output_xml_file,
             output_log_file_name=output_log_file,
+            #output_svg_file_name=output_svg_file
+            #api_input_url="https://validate-pdbe.wwpdb.org"
             )
         self.assertTrue(worked)
         shutil.rmtree(test_dir)

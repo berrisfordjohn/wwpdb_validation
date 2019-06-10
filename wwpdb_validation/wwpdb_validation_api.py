@@ -30,6 +30,8 @@ def run_validation_api(model_file_path, output_pdf_file_name,
                        output_cif_file_name=None,
                        output_svg_file_name=None,
                        output_log_file_name=None,
+                       output_2fofc_file_name=None,
+                       output_fofc_file_name=None,
                        api_input_url=None):
     # Given:
     # modelFilePath contains the path to the model file
@@ -97,6 +99,14 @@ def run_validation_api(model_file_path, output_pdf_file_name,
             ret = val.getOutputByType(output_svg_file_name, contentType="validation-report-slider")
             display_status(ret)
             logging.debug('getting svg status: {}'.format(ret))
+        if output_2fofc_file_name:
+            ret = val.getOutputByType(output_2fofc_file_name, contentType="validation-report-2fo-map-coef")
+            display_status(ret)
+            logging.debug('getting 2f-fc status: {}'.format(ret))
+        if output_fofc_file_name:
+            ret = val.getOutputByType(output_fofc_file_name, contentType="validation-report-fo-map-coef")
+            display_status(ret)
+            logging.debug('getting fo-fc status: {}'.format(ret))
         ret = val.getReportLog(file_name_of_logfile)
         logging.debug('getting report log status: {}'.format(ret))
         logging.info('log file: "{}"'.format(file_name_of_logfile))

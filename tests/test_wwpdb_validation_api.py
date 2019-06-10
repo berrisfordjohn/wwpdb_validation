@@ -24,8 +24,10 @@ class TestValidationReportGeneration(unittest.TestCase):
         output_pdf_file = os.path.join(test_dir, 'output.pdf')
         output_xml_file = os.path.join(test_dir, 'output.xml')
         output_log_file = os.path.join(test_dir, 'output.log')
-        output_cif_file = os.path.join(test_dir, 'output.cif')
+        #output_cif_file = os.path.join(test_dir, 'output.cif')
         output_svg_file = os.path.join(test_dir, 'output.svg')
+        output_2fofc_file = os.path.join(test_dir, 'output_2fofc')
+        output_fofc_file = os.path.join(test_dir, 'output_fofc')
         self.test_files.pdb3zt9()
         worked = wwpdb_validation_api.run_validation_api(
             model_file_path = self.test_files.cif,
@@ -33,8 +35,10 @@ class TestValidationReportGeneration(unittest.TestCase):
             output_pdf_file_name=output_pdf_file,
             output_xml_file_name=output_xml_file,
             output_log_file_name=output_log_file,
-            #output_svg_file_name=output_svg_file
-            #api_input_url="https://validate-pdbe.wwpdb.org"
+            output_svg_file_name=output_svg_file,
+            #output_2fofc_file_name=output_2fofc_file,
+            #output_fofc_file_name=output_fofc_file,
+            api_input_url="http://pdbe-onedep-staging:12000"
             )
         self.assertTrue(worked)
         shutil.rmtree(test_dir)

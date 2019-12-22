@@ -1,5 +1,5 @@
 import unittest
-from tests.access_test_files import TestFiles
+from access_test_files import TestFiles
 import tempfile
 import logging
 import os

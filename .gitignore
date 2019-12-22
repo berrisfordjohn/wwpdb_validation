@@ -2,6 +2,7 @@
 build*
 .idea*
 .vscode*
+.tox*
 ignore*
 *egg-info
 Pipfile*

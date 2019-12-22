@@ -4,3 +4,4 @@ build*
 .vscode*
 ignore*
 *egg-info
+Pipfile*

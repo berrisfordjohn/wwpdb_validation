@@ -38,7 +38,7 @@ class TestValidationReportGeneration(unittest.TestCase):
             output_svg_file_name=output_svg_file,
             #output_2fofc_file_name=output_2fofc_file,
             #output_fofc_file_name=output_fofc_file,
-            #api_input_url="http://pdbe-onedep-staging:12000"
+            api_input_url="https://validate-pdbe.wwpdb.org/"
             )
         self.assertTrue(worked)
         shutil.rmtree(test_dir)

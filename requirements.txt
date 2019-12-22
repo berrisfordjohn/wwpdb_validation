@@ -1,0 +1,2 @@
+onedep_api>=0.15
+requests

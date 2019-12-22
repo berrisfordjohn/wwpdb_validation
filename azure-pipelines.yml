@@ -30,13 +30,10 @@ steps:
     pip install -r requirements.txt
   displayName: 'Install dependencies'
 
-- script: pip install tox
-    displayName: 'Install Tox'
+- script: |
+      pip install tox
+  displayName: 'Install Tox'
 
-- script: tox -e py
-    displayName: 'Run Tox'
-
-#- script: |
-#    pip install pytest pytest-azurepipelines
-#    pytest
-#  displayName: 'pytest'
+- script: |
+      tox -e py
+  displayName: 'Run Tox'
